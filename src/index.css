@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* for book details table */
+table, tr,th,td{
+    text-align: left;
+    padding: 5px;
+    
+}
+tr{
+    border: 1px solid rgba(128, 128, 128, 0.274);
+}
