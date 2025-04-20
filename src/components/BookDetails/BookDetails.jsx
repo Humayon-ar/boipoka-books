@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router";
+import { addToStoredData } from "../../utility/AddToDB";
 
 const BookDetails = () => {
 
@@ -10,9 +11,11 @@ const BookDetails = () => {
 
     const { bookId, bookName, author, image, review, rating, totalPages, category, tags, yearOfPublishing, publisher } = matchedBook;
 
-
+    const handleMarkAsRead = (id) => {
+        addToStoredData(id);
+    }
     return (
-        <div className="flex gap-5 my-5">
+        <div className="flex flex-col md:flex-row gap-5 my-5 p-5">
             <div className="bg-slate-200 rounded-lg p-5 flex-grow-1 flex items-center justify-center">
                 <img className="h-[450px] inline" src={image} alt="It's a photo" />
             </div>
@@ -58,7 +61,7 @@ const BookDetails = () => {
                 </table>
 
                 <div>
-                    <button className="btn btn-outline-ghost mr-5">Read</button>
+                    <button onClick={() => handleMarkAsRead(id)} className="btn btn-outline-ghost mr-5">Mark as read</button>
                     <button className="btn btn-info text-white ">Wishlist</button>
                 </div>
             </div>
